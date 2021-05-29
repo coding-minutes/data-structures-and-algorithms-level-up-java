@@ -19,22 +19,6 @@ public class HeightBalanced {
         }
     };
 
-//Input :
-//1
-//        2
-// 4
-// -1
-// -1
-// 5
-// 7
-// -1
-// -1
-// -1
-// 3
-// -1
-// 6
-// -1
-// -1
     public Node buildTree(){
 
         Scanner s = new Scanner(System.in);
@@ -49,54 +33,8 @@ public class HeightBalanced {
 
         return n;
     }
-/* Todo: Implement Level Order Traversal
-Expected Output
-1
-2 3
-4 5 6
-7
-*/
 
-    public void levelOrderPrint(Node root){
 
-        Queue<Node> q = new LinkedList<>();
-        q.add(root);
-        q.add(null);
-
-        while(!q.isEmpty()){
-            Node temp = q.peek();
-            if(temp==null){
-                System.out.println();
-                q.remove();
-                //insert a new null for the next level
-                if(!q.isEmpty()){
-                    q.add(null);
-                }
-            }
-            else{
-                q.remove();
-                System.out.print(temp.data + " ");
-
-                if(temp.left!=null){
-                    q.add(temp.left);
-                }
-                if(temp.right!=null){
-                    q.add(temp.right);
-                }
-            }
-
-        }
-        return;
-    }
-    //Helper Function : Height of the Tree
-    int height(Node root){
-        if(root==null){
-            return 0;
-        }
-        int h1 = height(root.left);
-        int h2 = height(root.right);
-        return 1 + Math.max(h1,h2);
-    }
 
     // O(N) time
     pair<Integer,Boolean> isHeightBalanced(Node root){
