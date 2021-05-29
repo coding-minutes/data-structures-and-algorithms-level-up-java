@@ -1,4 +1,4 @@
-package com.company.ArraysandVectors;
+package com.company.ArraysandVectors_01;
 
 import java.util.Arrays;
 import java.util.HashSet;
