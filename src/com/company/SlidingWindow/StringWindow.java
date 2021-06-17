@@ -55,24 +55,7 @@ public class StringWindow {
         if(start_idx==-1){
             return "No window found";
         }
-        return substringutil(s,start_idx,min_so_far);
+        return s.substring(start_idx, start_idx + min_so_far);
     }
-
-    private static String substringutil(String str, int start_window, int i) {
-
-        int inc= start_window;
-        StringBuilder str1 = new StringBuilder();
-
-        while(i!=0){
-
-            str1.append(str.charAt(inc));
-            inc++;
-            i--;
-        }
-
-        return str1.toString();
-    }
-
-
 
 }
