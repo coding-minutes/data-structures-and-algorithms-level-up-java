@@ -1,0 +1,7 @@
+BFS, DFS, BFT, DFT all codes are present in Adjacency list class
+Check whether graph is bipartite is also done in Adjacency list class
+
+Prims and Kruskal algorithm are present in AdjacencyMap class
+
+Weighted graph implementation is done in Adjacency Map Graph
+
