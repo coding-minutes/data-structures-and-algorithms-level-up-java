@@ -25,10 +25,10 @@ public class angry_birds {
     public static void main(String[] args) {
         int b = 3;
         ArrayList<Integer> nests =new ArrayList<>();
-        nests.add(1);
         nests.add(2);
-        nests.add(4);
-        nests.add(8);
+        nests.add(3);
+        nests.add(6);
+        nests.add(7);
         nests.add(9);
 
         Collections.sort(nests);
