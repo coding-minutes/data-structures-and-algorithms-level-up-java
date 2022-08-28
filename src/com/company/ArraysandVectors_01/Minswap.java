@@ -1,44 +1,35 @@
 package com.company.ArraysandVectors_01;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Vector;
+import java.util.*;
 
-public class Minswap {
-
-    public static Vector<Integer> pairSum(Vector<Integer> arr, int Sum) {
-        //Logic
-        Set<Integer> s = new HashSet<>();
-        Vector<Integer> result = new Vector<>();
-
-        for (int i = 0; i < arr.size(); i++) {
-
-            int x = Sum - arr.get(i);
-            if (s.contains(x)) {
-                result.add(x);
-                result.add(arr.get(i));
-                return result;
-            }
-            //insert the current no inside set
-            s.add(arr.get(i));
-        }
-
-        return null;
+public class MinSwap {
+  public static void main(String[] args) {
+    int[] input = new int[]{10,11,5,4,3,2,1};
+    int ans = 0;
+    Map<Integer,Integer> map = new HashMap<>();
+    for(int i=0;i<input.length;i++){
+      map.put(input[i],i);
     }
-
-    public static void main(String[] args) {
-        Integer[] ar = {10, 5, 2 , 3, -6, 9 , 11};
-        int S = 4;
-
-        Vector<Integer> arr = new Vector<>(Arrays.asList(ar));
-
-        Vector<Integer> p = pairSum(arr,S);
-        if(p.size()==0){
-            System.out.println("no such pair");
-        }
-        else{
-            System.out.println(p.get(0)+" , "+ p.get(1));
-        }
+    // get the index of the input and make the sort and store the index in sortIndex
+    Arrays.sort(input);
+    List<Integer> sortIndex = new ArrayList<>();
+    for(int i:input){
+      sortIndex.add(map.get(i));
     }
+    List<Boolean> visited = new ArrayList<>(Collections.nCopies(input.length,false));
+    for(int i=0;i<input.length;i++){
+      if(sortIndex.get(i) == i || visited.get(i)){
+        continue;
+      }
+      int cycle = 0;
+      int node = i;
+      while(!visited.get(node)){
+        visited.set(node,true);
+        node = sortIndex.get(node);
+        cycle += 1;
+      }
+      ans+=cycle-1;
+    }
+    System.out.println(ans);
+  }
 }
